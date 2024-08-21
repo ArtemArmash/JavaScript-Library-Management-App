@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Accounting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Library Accounting</h1>
+        <nav>
+            <ul class="menu flex">
+                <li><a href="#" onclick="showSection('books')">- Works with books -</a></li>
+                <li><a href="#" onclick="showSection('visitors')">- Works with authors -</a></li>
+                <li><a href="#" onclick="showSection('publishers')">- Works with publishers -</a></li>
+                <li><a href="#" onclick="showSection('borrowers')">- Works with borrowers -</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="books" style="display: block;">
+            <h2>Works with books</h2>
+            <div class="books-wrap">
+                <div class="button-search">
+                    <input type="text" id="search" placeholder="     Search book..">
+                    <button class="btn-search" onclick="searchBooks()">Search</button>
+                </div>
+                <div class="select-books">
+                    <select id="sortBooks" onchange="sortBooks()">
+                        <option value="name">For names</option>
+                        <option value="author">For authors</option>
+                        <option value="quantity">For count quantity</option>
+                    </select>
+                </div>
+
+                <button onclick="toggleForm(true)">Add a new book</button>
+                <ul id="book-list"></ul>
+
+                <div id="book-form" style="display: none;">
+                    <h3 id="form-title">Add a new book</h3>
+                    <input type="text" id="book-name" placeholder="Name book">
+                    <input type="text" id="book-author" placeholder="Author">
+                    <input type="text" id="book-publisher" placeholder="Publishers">
+                    <input type="number" id="book-quantity" placeholder="Count quantity">
+                    <button onclick="saveBook()">Save</button>
+                    <button onclick="toggleForm(false)">Back</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="visitors" style="display: none;">
+            <h2>Works with visitors</h2>
+            <div class="visitors-wrap">
+                <div class="button-search">
+                    <input type="text" id="visitor-search" placeholder="     Search visitor..">
+                    <button class="btn-search" onclick="searchVisitors()">Search</button>
+                </div>
+                <div class="select-visitors">
+                    <select id="sortVisitors" onchange="sortVisitors()">
+                        <option value="id">By ID</option>
+                        <option value="name">By Name</option>
+                    </select>
+                </div>
+
+                <button onclick="toggleVisitorForm(true)">Add a new visitor</button>
+                <ul id="visitor-list"></ul>
+
+                <div id="visitor-form" style="display: none;">
+                    <h3 id="visitor-form-title">Add a new visitor</h3>
+                    <input type="number" id="visitor-id" placeholder="Visitor ID">
+                    <input type="text" id="visitor-name" placeholder="Visitor Name">
+                    <input type="text" id="visitor-phone" placeholder="Phone Number">
+                    <button onclick="saveVisitor()">Save</button>
+                    <button onclick="toggleVisitorForm(false)">Back</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section></section>
+        <section></section>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>
